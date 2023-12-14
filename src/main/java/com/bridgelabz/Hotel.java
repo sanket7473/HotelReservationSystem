@@ -14,21 +14,22 @@ public class Hotel {
     int weekendRateForregularcustomer;
     int hotelRating;
 
-    //setHotelRating is to set the hotel ratings.
-    public void setHotelRating(int hotelRating) {
-        this.hotelRating = hotelRating;
-    }
- //getHotelRating is to to get the hotel rating
-    public int getHotelRating() {
-        return hotelRating;
-    }
-
     public Hotel(String hotelName, int ratesForRegularCustomer, int weekdaysRateForRegularCustomer, int weekendRateForregularcustomer, int hotelRating) {
         this.hotelName = hotelName;
         this.ratesForRegularCustomer = ratesForRegularCustomer;
         this.weekdaysRateForRegularCustomer = weekdaysRateForRegularCustomer;
         this.weekendRateForregularcustomer = weekendRateForregularcustomer;
-        this.hotelRating=hotelRating;
+        this.hotelRating = hotelRating;
+    }
+
+    //getHotelRating is to to get the hotel rating
+    public int getHotelRating() {
+        return hotelRating;
+    }
+
+    //setHotelRating is to set the hotel ratings.
+    public void setHotelRating(int hotelRating) {
+        this.hotelRating = hotelRating;
     }
 
     public int getWeekdaysRateForRegularCustomer() {
