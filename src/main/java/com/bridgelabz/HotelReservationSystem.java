@@ -9,6 +9,7 @@ import java.time.temporal.*;
  regular customer weekdays Rate and weekend Rate for the customer.
  *chepestHotel() method is to find chepest hotel based on rating.
  * chepestHotelWithRateReating() is to find chepest hotel with best rate and rating.
+ * bestRatedHotel() is to find best hotel with good ratings.
  */
 public class HotelReservationSystem {
     //ArrayList for hotelList.
@@ -25,6 +26,12 @@ public class HotelReservationSystem {
     double cheapestHotelWithRatingBridgewood;
     //cheapestHotelWithRatingRidgewood variable is storing a value for rating
     double cheapestHotelWithRatingRidgewood;
+    //ratings for the lakewwod hotel
+    int lakeWoodRating;
+    // rating for the Bridgewood hotel
+    int bridgewoodRating;
+    //Rating for Ridgewood hotel
+    int ridgewoodRating;
 
 
     public static void main(String[] args) {
@@ -40,6 +47,7 @@ public class HotelReservationSystem {
         HotelReservationSystem reservationSystem = new HotelReservationSystem();
         reservationSystem.chepestHotel();
         reservationSystem.chepestHotelWithRateReating();
+        reservationSystem.bestRatedHotel();
     }
 
     /*
@@ -94,7 +102,7 @@ public class HotelReservationSystem {
         if (checkWeekday(dayOfWeek1)) {
             sumWeekdayLakewood = hotelList.get(0).getWeekdaysRateForRegularCustomer();
             sumWeekdayBridgewood = hotelList.get(1).getWeekdaysRateForRegularCustomer();
-            sumWeekdayRidgewood = hotelList.get(1).getWeekdaysRateForRegularCustomer();
+            sumWeekdayRidgewood = hotelList.get(2).getWeekdaysRateForRegularCustomer();
         }
         /*checkWeekday(dayOfWeek2) will return true if it is a weekdays but here dayOfWeek2 is a weekend.
         Calculating  a weekday and weekend total rate for each hotel
@@ -127,12 +135,32 @@ public class HotelReservationSystem {
         cheapestHotelWithRatingRidgewood = sumWeekdayRidgewood / hotelList.get(2).getHotelRating();
 
         if (cheapestHotelWithRatingLakewood < cheapestHotelWithRatingBridgewood && cheapestHotelWithRatingLakewood < cheapestHotelWithRatingRidgewood) {
-            System.out.println("Hotel Lakewood is best hotel with cheapest rate is "+sumWeekdayLakewood+" and best rating " + hotelList.get(0).getHotelRating());
+            System.out.println("Hotel Lakewood is best hotel with cheapest rate is " + sumWeekdayLakewood + " and best rating " + hotelList.get(0).getHotelRating());
         } else if (cheapestHotelWithRatingBridgewood < cheapestHotelWithRatingLakewood && cheapestHotelWithRatingBridgewood < cheapestHotelWithRatingRidgewood) {
-            System.out.println("Hotel Bridgewood is best hotel with cheapest rate is "+sumWeekdayBridgewood+" and best rating " + hotelList.get(1).getHotelRating());
+            System.out.println("Hotel Bridgewood is best hotel with cheapest rate is " + sumWeekdayBridgewood + " and best rating " + hotelList.get(1).getHotelRating());
         } else {
-            System.out.println("Hotel Ridgewood is besthotel with cheapest rate is "+sumWeekdayRidgewood+" and best rating and best rating " + hotelList.get(2).getHotelRating());
+            System.out.println("Hotel Ridgewood is besthotel with cheapest rate is " + sumWeekdayRidgewood + " and best rating and best rating " + hotelList.get(2).getHotelRating());
         }
+    }
+
+    /*
+    @Desc: bestRatedHotel() is to get the best hotel according to the ratings
+     */
+    public void bestRatedHotel() {
+        lakeWoodRating = hotelList.get(0).getHotelRating();
+        bridgewoodRating = hotelList.get(1).getHotelRating();
+        ridgewoodRating = hotelList.get(2).getHotelRating();
+        if (lakeWoodRating > bridgewoodRating && lakeWoodRating > ridgewoodRating) {
+            System.out.println("Best rated hotel is " + hotelList.get(0).getHotelName() + " has Rating " + lakeWoodRating + " and total cost is " + sumWeekdayLakewood);
+
+        } else if (bridgewoodRating > lakeWoodRating && bridgewoodRating > ridgewoodRating) {
+            System.out.println("Best rated hotel is " + hotelList.get(1).getHotelName() + " has Rating " + bridgewoodRating + " and total cost is " + sumWeekdayBridgewood);
+
+        } else {
+            System.out.println("Best rated hotel is " + hotelList.get(2).getHotelName() + " has Rating " + ridgewoodRating + " and total cost is " + sumWeekdayRidgewood);
+
+        }
+
     }
 
 }
