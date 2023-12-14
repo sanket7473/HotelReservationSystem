@@ -36,9 +36,9 @@ public class HotelReservationSystem {
 
     public static void main(String[] args) {
         System.out.println("Welcome to Hotel Reservation Program");
-        Hotel Lakewood = new Hotel("Lakewood", 110, 110, 90, 3);
-        Hotel Bridgewood = new Hotel("Bridgewood", 160, 160, 60, 4);
-        Hotel Ridgewood = new Hotel("Ridgewood", 220, 220, 150, 5);
+        Hotel Lakewood = new Hotel("Lakewood", 110, 110, 90, 3,80,80);
+        Hotel Bridgewood = new Hotel("Bridgewood", 160, 160, 60, 4,110,50);
+        Hotel Ridgewood = new Hotel("Ridgewood", 220, 220, 150, 5,100,40);
 
         hotelList.add(Lakewood);
         hotelList.add(Bridgewood);

@@ -1,10 +1,11 @@
 package com.bridgelabz;
 
 /*
- *@Desc: Hotel class has two variables hotelName and a ratesForRegularCustomer,weekdaysRateForRegularCustomer,weekendRateForregularcustomer,hotelRating.
-  Containing methods getter and setter getHotelName,getRatesForRegularCustomer,
+ *@Desc: Hotel class has two variables hotelName and a
+ ratesForRegularCustomer,weekdaysRateForRegularCustomer,weekendRateForregularcustomer,hotelRating,weekdaysRateForRewardcustomer,weekendRateForRewardCustomer.
+ * Containing methods getter and setter getHotelName,getRatesForRegularCustomer,getWeekdaysRateForRewardcustomer,getWeekendRateForRewardCustomer.
   setHotelName,setRatesForRegularCustomer,getWeekdaysRateForRegularCustomer,setWeekdaysRateForRegularCustomer,getWeekendRateForregularcustomer,
-  setWeekendRateForregularcustomer,setHotelRating,getHotelRating .
+  setWeekendRateForregularcustomer,setHotelRating,getHotelRating,setWeekdaysRateForRewardcustomer,setWeekendRateForRewardCustomer .
  * .
  */
 public class Hotel {
@@ -13,13 +14,35 @@ public class Hotel {
     int weekdaysRateForRegularCustomer;
     int weekendRateForregularcustomer;
     int hotelRating;
+    //weekdaysRateForRewardcustomer storing special rate for reward customer in weekday.
+    int weekdaysRateForRewardcustomer;
+    //weekendRateForRewardCustomer storing a special rate for reward customers in weekends.
+    int weekendRateForRewardCustomer;
 
-    public Hotel(String hotelName, int ratesForRegularCustomer, int weekdaysRateForRegularCustomer, int weekendRateForregularcustomer, int hotelRating) {
+    public Hotel(String hotelName, int ratesForRegularCustomer, int weekdaysRateForRegularCustomer, int weekendRateForregularcustomer, int hotelRating,int weekdaysRateForRewardcustomer,int weekendRateForRewardCustomer) {
         this.hotelName = hotelName;
         this.ratesForRegularCustomer = ratesForRegularCustomer;
         this.weekdaysRateForRegularCustomer = weekdaysRateForRegularCustomer;
         this.weekendRateForregularcustomer = weekendRateForregularcustomer;
         this.hotelRating = hotelRating;
+        this.weekdaysRateForRewardcustomer=weekdaysRateForRewardcustomer;
+        this.weekendRateForRewardCustomer=weekendRateForRewardCustomer;
+    }
+
+    public int getWeekdaysRateForRewardcustomer() {
+        return weekdaysRateForRewardcustomer;
+    }
+
+    public int getWeekendRateForRewardCustomer() {
+        return weekendRateForRewardCustomer;
+    }
+
+    public void setWeekdaysRateForRewardcustomer(int weekdaysRateForRewardcustomer) {
+        this.weekdaysRateForRewardcustomer = weekdaysRateForRewardcustomer;
+    }
+
+    public void setWeekendRateForRewardCustomer(int weekendRateForRewardCustomer) {
+        this.weekendRateForRewardCustomer = weekendRateForRewardCustomer;
     }
 
     //getHotelRating is to to get the hotel rating
