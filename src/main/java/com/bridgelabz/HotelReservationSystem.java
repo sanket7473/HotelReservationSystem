@@ -127,11 +127,11 @@ public class HotelReservationSystem {
         cheapestHotelWithRatingRidgewood = sumWeekdayRidgewood / hotelList.get(2).getHotelRating();
 
         if (cheapestHotelWithRatingLakewood < cheapestHotelWithRatingBridgewood && cheapestHotelWithRatingLakewood < cheapestHotelWithRatingRidgewood) {
-            System.out.println("Hotel Lakewood is best hotel with cheapest rate and best rating " + cheapestHotelWithRatingLakewood);
+            System.out.println("Hotel Lakewood is best hotel with cheapest rate is "+sumWeekdayLakewood+" and best rating " + hotelList.get(0).getHotelRating());
         } else if (cheapestHotelWithRatingBridgewood < cheapestHotelWithRatingLakewood && cheapestHotelWithRatingBridgewood < cheapestHotelWithRatingRidgewood) {
-            System.out.println("Hotel Bridgewood is best hotel with cheapest rate and best rating " + cheapestHotelWithRatingBridgewood);
+            System.out.println("Hotel Bridgewood is best hotel with cheapest rate is "+sumWeekdayBridgewood+" and best rating " + hotelList.get(1).getHotelRating());
         } else {
-            System.out.println("Hotel Ridgewood is best hotel with cheapest rate and best rating " + cheapestHotelWithRatingRidgewood);
+            System.out.println("Hotel Ridgewood is besthotel with cheapest rate is "+sumWeekdayRidgewood+" and best rating and best rating " + hotelList.get(2).getHotelRating());
         }
     }
 
