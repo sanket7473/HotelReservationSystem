@@ -1,10 +1,10 @@
 package com.bridgelabz;
 
 /*
- *@Desc: Hotel class has two variables hotelName and a ratesForRegularCustomer.
+ *@Desc: Hotel class has two variables hotelName and a ratesForRegularCustomer,weekdaysRateForRegularCustomer,weekendRateForregularcustomer,hotelRating.
   Containing methods getter and setter getHotelName,getRatesForRegularCustomer,
   setHotelName,setRatesForRegularCustomer,getWeekdaysRateForRegularCustomer,setWeekdaysRateForRegularCustomer,getWeekendRateForregularcustomer,
-  setWeekendRateForregularcustomer
+  setWeekendRateForregularcustomer,setHotelRating,getHotelRating .
  * .
  */
 public class Hotel {
@@ -12,12 +12,23 @@ public class Hotel {
     int ratesForRegularCustomer;
     int weekdaysRateForRegularCustomer;
     int weekendRateForregularcustomer;
+    int hotelRating;
 
-    public Hotel(String hotelName, int ratesForRegularCustomer, int weekdaysRateForRegularCustomer, int weekendRateForregularcustomer) {
+    //setHotelRating is to set the hotel ratings.
+    public void setHotelRating(int hotelRating) {
+        this.hotelRating = hotelRating;
+    }
+ //getHotelRating is to to get the hotel rating
+    public int getHotelRating() {
+        return hotelRating;
+    }
+
+    public Hotel(String hotelName, int ratesForRegularCustomer, int weekdaysRateForRegularCustomer, int weekendRateForregularcustomer, int hotelRating) {
         this.hotelName = hotelName;
         this.ratesForRegularCustomer = ratesForRegularCustomer;
         this.weekdaysRateForRegularCustomer = weekdaysRateForRegularCustomer;
         this.weekendRateForregularcustomer = weekendRateForregularcustomer;
+        this.hotelRating=hotelRating;
     }
 
     public int getWeekdaysRateForRegularCustomer() {
