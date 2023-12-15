@@ -10,6 +10,8 @@ import java.time.temporal.*;
  *chepestHotel() method is to find chepest hotel based on rating.
  * chepestHotelWithRateReating() is to find chepest hotel with best rate and rating.
  * bestRatedHotel() is to find best hotel with good ratings.
+ * cheapHotelForRewardCustomerwithRating() method to calculate a best rated hotel for reward customer and
+  with cheap price
  */
 public class HotelReservationSystem {
     //ArrayList for hotelList.
@@ -33,12 +35,19 @@ public class HotelReservationSystem {
     //Rating for Ridgewood hotel
     int ridgewoodRating;
 
+    int sumWeekdayLakewoodForRewardCustomer;
+    int sumWeekdayBridgewoodForRewardCustomer;
+    int sumWeekdayRidgewoodForRewardCustomer;
+
+    int cheapHotelRewardCustomer_lakewood;
+    int cheapHotelForRewardCustomer_bridgewood;
+    int cheapHotelForRewardCustomer_ridgewood;
 
     public static void main(String[] args) {
         System.out.println("Welcome to Hotel Reservation Program");
-        Hotel Lakewood = new Hotel("Lakewood", 110, 110, 90, 3,80,80);
-        Hotel Bridgewood = new Hotel("Bridgewood", 160, 160, 60, 4,110,50);
-        Hotel Ridgewood = new Hotel("Ridgewood", 220, 220, 150, 5,100,40);
+        Hotel Lakewood = new Hotel("Lakewood", 110, 110, 90, 3, 80, 80);
+        Hotel Bridgewood = new Hotel("Bridgewood", 160, 160, 60, 4, 110, 50);
+        Hotel Ridgewood = new Hotel("Ridgewood", 220, 220, 150, 5, 100, 40);
 
         hotelList.add(Lakewood);
         hotelList.add(Bridgewood);
@@ -48,7 +57,22 @@ public class HotelReservationSystem {
         reservationSystem.chepestHotel();
         reservationSystem.chepestHotelWithRateReating();
         reservationSystem.bestRatedHotel();
+        reservationSystem.cheapHotelForRewardCustomer();
+        reservationSystem.cheapHotelForRewardCustomerwithRating();
     }
+
+        // create LocalDate object and calculations of the day according to the date.
+        LocalDate localDate
+                = LocalDate.of(2020, Month.SEPTEMBER, 10);
+        LocalDate localDate_1
+                = LocalDate.of(2020, Month.SEPTEMBER, 11);
+        LocalDate localdate_2 = LocalDate.of(2020, Month.SEPTEMBER, 12);
+        /*
+         * DayOfWeek get the day according to provided date in a inputs
+         */
+        DayOfWeek dayOfWeek = localDate.getDayOfWeek();
+        DayOfWeek dayOfWeek1 = localDate_1.getDayOfWeek();
+        DayOfWeek dayOfWeek2 = localdate_2.getDayOfWeek();
 
     /*
      *@Desc: checkWeekday() is method returning true or false if it is a weekday.
@@ -69,18 +93,7 @@ public class HotelReservationSystem {
     *
      */
     public void chepestHotel() {
-// create LocalDate object
-        LocalDate localDate
-                = LocalDate.of(2020, Month.SEPTEMBER, 10);
-        LocalDate localDate_1
-                = LocalDate.of(2020, Month.SEPTEMBER, 11);
-        LocalDate localdate_2 = LocalDate.of(2020, Month.SEPTEMBER, 12);
-        /*
-         * DayOfWeek get the day according to provided date in a inputs
-         */
-        DayOfWeek dayOfWeek = localDate.getDayOfWeek();
-        DayOfWeek dayOfWeek1 = localDate_1.getDayOfWeek();
-        DayOfWeek dayOfWeek2 = localdate_2.getDayOfWeek();
+
         //Calling function checkWeekday() to check the weekday and if it is weekday then adding rates for the dates.
         if (checkWeekday(dayOfWeek) && checkWeekday(dayOfWeek1)) {
             int sum1 = hotelList.get(0).getRatesForRegularCustomer() + hotelList.get(0).getRatesForRegularCustomer();
@@ -114,7 +127,12 @@ public class HotelReservationSystem {
 
 
         }
-        //To calculate a cheapest hotel for the weekdays and weekend.
+
+
+
+        /*To calculate a cheapest hotel
+        for the weekdays and weekend.*/
+
         if (sumWeekdayLakewood < sumWeekdayBridgewood && sumWeekdayLakewood < sumWeekdayRidgewood) {
             System.out.println("Cheapest rate for hotel Lakewood in weekend and weekdays is " + sumWeekdayLakewood);
         } else if (sumWeekdayBridgewood < sumWeekdayLakewood && sumWeekdayBridgewood < sumWeekdayRidgewood) {
@@ -127,7 +145,8 @@ public class HotelReservationSystem {
     }
 
     /*
-     * chepestHotelWithRateReating() is to find cheap hotel based on the cheap rate and best rating.
+     * chepestHotelWithRateReating() is to find
+       cheap hotel based on the cheap rate and best rating.
      */
     public void chepestHotelWithRateReating() {
         cheapestHotelWithRatingLakewood = sumWeekdayLakewood / hotelList.get(0).getHotelRating();
@@ -161,6 +180,53 @@ public class HotelReservationSystem {
 
         }
 
+    }
+
+    /*
+     *
+     */
+    public void cheapHotelForRewardCustomer() {
+        if (sumWeekdayLakewoodForRewardCustomer < sumWeekdayBridgewoodForRewardCustomer && sumWeekdayLakewoodForRewardCustomer < sumWeekdayRidgewoodForRewardCustomer) {
+            System.out.println("Chepest hotel for reward customer is " + hotelList.get(0).getHotelName() + " has total rate " + sumWeekdayLakewoodForRewardCustomer);
+        } else if (sumWeekdayBridgewoodForRewardCustomer < sumWeekdayLakewoodForRewardCustomer && sumWeekdayBridgewoodForRewardCustomer < sumWeekdayRidgewoodForRewardCustomer) {
+            System.out.println("Chepest hotel for reward customer is " + hotelList.get(1).getHotelName() + " has total rate " + sumWeekdayBridgewoodForRewardCustomer);
+        } else {
+            System.out.println("Chepest hotel for reward customer is " + hotelList.get(2).getHotelName() + " has total rate " + sumWeekdayRidgewoodForRewardCustomer);
+        }
+
+
+    }
+/*
+*cheapHotelForRewardCustomerwithRating() is to calculate a
+ best rated hotel with cheap price and more ratings.
+ */
+    public void cheapHotelForRewardCustomerwithRating() {
+        /* To calculate a cheapest hotel for the
+        weekdays and weekend
+        for the Reward Customer.
+         */
+        if (checkWeekday(dayOfWeek1)) {
+            sumWeekdayLakewoodForRewardCustomer = hotelList.get(0).weekdaysRateForRewardcustomer;
+            sumWeekdayBridgewoodForRewardCustomer = hotelList.get(1).weekdaysRateForRewardcustomer;
+            sumWeekdayRidgewoodForRewardCustomer = hotelList.get(2).weekdaysRateForRewardcustomer;
+
+        }
+        if (!checkWeekday(dayOfWeek2)) {
+            sumWeekdayLakewoodForRewardCustomer = sumWeekdayLakewoodForRewardCustomer + hotelList.get(0).weekendRateForRewardCustomer;
+            sumWeekdayBridgewoodForRewardCustomer = sumWeekdayBridgewoodForRewardCustomer + hotelList.get(1).weekendRateForRewardCustomer;
+            sumWeekdayRidgewoodForRewardCustomer = sumWeekdayRidgewoodForRewardCustomer + hotelList.get(2).weekendRateForRewardCustomer;
+        }
+
+        cheapHotelRewardCustomer_lakewood = sumWeekdayLakewoodForRewardCustomer / hotelList.get(0).getHotelRating();
+        cheapHotelForRewardCustomer_bridgewood = sumWeekdayBridgewoodForRewardCustomer / hotelList.get(1).getHotelRating();
+        cheapHotelForRewardCustomer_ridgewood = sumWeekdayRidgewoodForRewardCustomer / hotelList.get(2).getHotelRating();
+        if (cheapHotelRewardCustomer_lakewood < cheapHotelForRewardCustomer_bridgewood && cheapHotelRewardCustomer_lakewood < cheapHotelForRewardCustomer_ridgewood) {
+            System.out.println("Cheapest best rated hotel for reward customer is " + hotelList.get(0).getHotelName() + " with rate is " + sumWeekdayLakewoodForRewardCustomer + " and rating is " + hotelList.get(0).getHotelRating());
+        } else if (cheapHotelForRewardCustomer_bridgewood < cheapHotelRewardCustomer_lakewood && cheapHotelForRewardCustomer_bridgewood < cheapHotelForRewardCustomer_ridgewood) {
+            System.out.println("Cheapest best rated hotel is for reward customer is " + hotelList.get(1).getHotelName() + " with rate is " + sumWeekdayBridgewoodForRewardCustomer + " and rating is " + hotelList.get(1).getHotelRating());
+        } else {
+            System.out.println("Cheapest best rated hotel is for reward customer is " + hotelList.get(2).getHotelName() + " with rate is " + sumWeekdayRidgewoodForRewardCustomer + " and rating is " + hotelList.get(2).getHotelRating());
+        }
     }
 
 }

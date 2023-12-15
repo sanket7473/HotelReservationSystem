@@ -19,26 +19,26 @@ public class Hotel {
     //weekendRateForRewardCustomer storing a special rate for reward customers in weekends.
     int weekendRateForRewardCustomer;
 
-    public Hotel(String hotelName, int ratesForRegularCustomer, int weekdaysRateForRegularCustomer, int weekendRateForregularcustomer, int hotelRating,int weekdaysRateForRewardcustomer,int weekendRateForRewardCustomer) {
+    public Hotel(String hotelName, int ratesForRegularCustomer, int weekdaysRateForRegularCustomer, int weekendRateForregularcustomer, int hotelRating, int weekdaysRateForRewardcustomer, int weekendRateForRewardCustomer) {
         this.hotelName = hotelName;
         this.ratesForRegularCustomer = ratesForRegularCustomer;
         this.weekdaysRateForRegularCustomer = weekdaysRateForRegularCustomer;
         this.weekendRateForregularcustomer = weekendRateForregularcustomer;
         this.hotelRating = hotelRating;
-        this.weekdaysRateForRewardcustomer=weekdaysRateForRewardcustomer;
-        this.weekendRateForRewardCustomer=weekendRateForRewardCustomer;
+        this.weekdaysRateForRewardcustomer = weekdaysRateForRewardcustomer;
+        this.weekendRateForRewardCustomer = weekendRateForRewardCustomer;
     }
 
     public int getWeekdaysRateForRewardcustomer() {
         return weekdaysRateForRewardcustomer;
     }
 
-    public int getWeekendRateForRewardCustomer() {
-        return weekendRateForRewardCustomer;
-    }
-
     public void setWeekdaysRateForRewardcustomer(int weekdaysRateForRewardcustomer) {
         this.weekdaysRateForRewardcustomer = weekdaysRateForRewardcustomer;
+    }
+
+    public int getWeekendRateForRewardCustomer() {
+        return weekendRateForRewardCustomer;
     }
 
     public void setWeekendRateForRewardCustomer(int weekendRateForRewardCustomer) {
@@ -74,6 +74,7 @@ public class Hotel {
     public String getHotelName() {
         return hotelName;
     }
+
 
     public void setHotelName(String hotelName) {
         this.hotelName = hotelName;
